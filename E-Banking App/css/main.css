@@ -1,0 +1,41 @@
+*{
+    box-sizing: border-box;
+    font-family: Verdana;
+}
+
+/* main Body Styling */
+body{
+    background-color: #cacaca;
+}
+
+/* <!-- Main Page Header --> */
+.main-page-header{
+    padding: 10px 0px;
+}
+
+/* <!-- Company Name  --> */
+.main-page-header .company-name{
+    font-weight: 600;
+    color: white;
+}
+
+/* <-- Navigation  --> */
+.navigation{
+    margin-left: 20px;
+}
+
+.navigation li{
+    display: inline-block;
+    list-style-type: none;
+    margin: 0px 15px;
+}
+
+.navigation li a{
+    color: white;
+    text-decoration: none;
+}
+
+/* <!-- Display Name--> */
+.display-name{
+    font-weight: 600;
+}
