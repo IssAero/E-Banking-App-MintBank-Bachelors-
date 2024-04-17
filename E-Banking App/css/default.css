@@ -75,3 +75,80 @@ body{
 .card-text a{
     padding-bottom: 7px;
 }
+
+/* <!--  login fields icons  --!> */
+
+.form-group-email {
+    position: relative;
+}
+
+.form-group-email i{
+    position: absolute;
+    left: 790px;
+    top: 17px;
+}
+
+.form-group-password {
+    position: relative;
+}
+
+.form-group-password i{
+    position: absolute;
+    left: 802px;
+    top: 25px;
+}
+
+/* <!--  End login fields icons  --!> */
+
+/* <!--  Register fields icons  --!> */
+
+.form-group-password-register {
+    position: relative;
+}
+
+.form-group-password-register i{
+    position: absolute;
+    left: 595px;
+    top: 27px;
+}
+
+.form-group-confirm-password {
+    position: relative;
+}
+
+.form-group-confirm-password i{
+    position: absolute;
+    left: 595px;
+    top: 27px;
+}
+
+.form-group-email-register{
+    position: relative;
+}
+
+.form-group-email-register i{
+    position: absolute;
+    left: 1217px;
+    top: 17px;
+}   
+
+.form-group-last {
+    position: relative;
+}
+
+.form-group-last i{
+    position: absolute;
+    left: 595px;
+    top: 27px;
+}
+
+.form-group-first {
+    position: relative;
+}
+
+.form-group-first i{
+    position: absolute;
+    left: 595px;
+    top: 27px;
+}
+/* <!--  End Register fields icons  --!> */
