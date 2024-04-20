@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <link rel='stylesheet' href='css/email.css'>
+    <title>Email</title>
+    <style>
+        *{
+    box-sizing: border-box;
+    font-family: Helmet Neue;
+    }
+
+    /* Main Body Styling */
+    body{
+        height: 100vh;
+        background-color: rgb(37, 37, 37);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* <!-- Wrapper --> */
+    .wrapper{
+        width: 550px;
+        height: auto;
+        padding: 15px;
+        background-color: #f5f5f5;
+        border-radius: 7px;
+    }
+
+    /* Email MSG Header*/
+    .email-msg-header{
+        text-align: center;
+        color: black;
+    }
+
+    .company-name h2{
+        font-family: Bison;
+        text-align: center;
+        font-size: 40px;
+        margin: 15px 0px;
+        color: black;
+    }
+
+    /* <!-- Welcome Text --> */
+    .welcome-text{
+        text-align: center;
+        color: black;
+    }
+
+    /* <!-- Verify Account Button --> */
+    .verify-account-btn{
+        margin-bottom: 10px;
+        padding: 15px;
+        background-color: #00FFAB;
+        text-decoration: none;
+        color: black;
+        border-radius: 5px;
+        box-shadow: 0px 1px 2px black
+    }
+
+    /* <!-- Copy Right Wrapper --> */
+    .copy-right{
+        margin-top: 25px;
+        font-size: 14px;
+        color: black;
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    </style>
+  </head>
+  <body>
+
+    <!-- Wrapper -->
+    <div class='wrapper'>
+        <!-- Email MSG Header -->
+        <h2 class='email-msg-header'>
+            Welcome and Thank You for Choosing
+        </h2>
+        <!-- End Email MSG Header -->
+
+        <!-- Company Name -->
+        <div class='company-name'>
+            <h2>Placeholder Bank</h2>
+        </div>
+        <!-- End Company Name-->
+
+        <hr style='background:transparent; border:0; height:3px' />
+
+        <!-- Welcome Text -->
+        <p class='welcome-text'>
+            Your Account has been successfully registered, please click below to verify your account
+        </p>
+        <!-- End Welcome Text -->
+        <br>
+        <br>
+        <!-- Verify Account Button -->
+        <center><a href='' class='verify-account-btn' role='button'>Verify Account</a></center>
+        <!-- End Verify Account Button -->
+
+        <!-- Copy Right Wrapper -->
+        <div class='copy-right'>
+            &copy; Copy Right 2024. All Rights Reserved.
+        </div>
+        <!-- End Copy Right Wrapper -->
+
+    </div>
+    <!-- End Wrapper -->
+
+
+  </body>
+</html>

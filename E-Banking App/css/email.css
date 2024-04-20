@@ -1,0 +1,65 @@
+*{
+    box-sizing: border-box;
+    font-family: Helmet Neue;
+}
+
+/* Main Body Styling */
+body{
+    height: 100vh;
+    background-color: rgb(37, 37, 37);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* <!-- Wrapper --> */
+.wrapper{
+    width: 550px;
+    height: auto;
+    padding: 15px;
+    background-color: #f5f5f5;
+    border-radius: 7px;
+}
+
+/* Email MSG Header*/
+.email-msg-header{
+    text-align: center;
+    color: black;
+}
+
+.company-name h2{
+    font-family: Bison;
+    text-align: center;
+    font-size: 40px;
+    margin: 15px 0px;
+    color: black;
+}
+
+/* <!-- Welcome Text --> */
+.welcome-text{
+    text-align: center;
+    color: black;
+}
+
+/* <!-- Verify Account Button --> */
+.verify-account-btn{
+    margin-bottom: 10px;
+    padding: 15px;
+    background-color: #00FFAB;
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    box-shadow: 0px 1px 2px black
+}
+
+/* <!-- Copy Right Wrapper --> */
+.copy-right{
+    margin-top: 25px;
+    font-size: 14px;
+    color: black;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
