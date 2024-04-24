@@ -1,0 +1,100 @@
+*{
+    box-sizing: border-box;
+    font-family: Helmet Neue;
+}
+
+/* main Body Styling */
+body{
+    background-color: #FAF9F6;
+}
+
+/* <!-- Main Page Header --> */
+.main-page-header{
+    padding: 10px 0px;
+}
+
+/* <!-- Company Name  --> */
+.main-page-header .company-name{
+    font-family: Bison;
+    font-size: 160%;
+    font-weight: 600;
+    color: white;
+}
+
+/* <-- Navigation  --> */
+.navigation{
+    margin-left: 20px;
+}
+
+.navigation li{
+    display: inline-block;
+    list-style-type: none;
+    margin: 0px 15px;
+}
+
+.navigation li a{
+    color: white;
+    text-decoration: none;
+}
+
+/* <!-- Display Name--> */
+.display-name{
+    font-weight: 600;
+}
+
+/* Transact button */
+#transact-btn{
+    box-shadow: 1px 1px 2px black;
+    background-color: #00FFAB;
+}
+
+/* Accounts button */
+#accounts-btn{
+    box-shadow: 1px 1px 2px black;
+    background-color: white;
+}
+
+/* Accordion Container */
+.container {
+    margin: 10px auto;
+}
+
+.offcanvas{
+    background-color: #FAF9F6;
+}
+
+.cardbody {
+    position: relative;
+}
+
+.card .form-control{
+    border: 1px solid black;
+    margin: 10px 0px;
+    box-shadow: 1px 1px 2px black;
+}
+
+.offcanvas-body .form-control{
+    border: 1px solid black;
+    margin: 10px 0px;
+    box-shadow: 1px 1px 2px black;
+}
+
+/* Card: Payment Card */
+.payment-card{
+    display: none;
+}
+
+/* Card: transfer Card */
+.transfer-card{
+    display: none;
+}
+
+/* Card: deposit Card */
+.deposit-card{
+    display: none;
+}
+
+/* Card: withdraw Card */
+.withdraw-card{
+    display: none;
+}
