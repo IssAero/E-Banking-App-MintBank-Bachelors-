@@ -25,13 +25,28 @@
         </h1>
         <!-- End Form Header  -->
 
+        <!-- Display Message -->
+        <c:if test = "${requestScope.passwordMismatch != null}">
+            <div class="alert alert-danger text-center border border-danger">
+                <b>${requestScope.passwordMismatch}</b>
+            </div>
+        </c:if>
+        <!-- End Display Message -->
+
+        <!-- Success Message -->
+        <c:if test = "${requestScope.success != null}">
+            <div class="alert alert-success text-center border border-success">
+                <b>${requestScope.success}</b>
+            </div>
+        </c:if>
+        <!-- End Success Message -->
 
         <!-- Registration Form  -->
         <form:form action="/register" class="reg-form" modelAttribute="registerUser">
             <!-- Row  -->
             <div class="row">
                 <!-- Form Group  -->
-                <div class="form-group-last col">
+                <div class="form-group-last col" style="position:relative;">
                     <form:input type="text" path="last_name" class="form-control form-control-lg" placeholder="Introduceti numele"/><i class="fa-regular fa-user"></i>
                     <form:errors path="last_name" class="text-danger"/>
                 </div>

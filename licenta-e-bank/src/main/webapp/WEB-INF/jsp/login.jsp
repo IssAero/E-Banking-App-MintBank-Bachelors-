@@ -20,6 +20,15 @@
             <i class="fa fa-user-circle"></i> Logare Utilizator
         </h1>
         <!-- End Form Header  -->
+
+        <!-- Success Message -->
+        <c:if test = "${requestScope.success != null}">
+            <div class="alert alert-success text-center border border-success">
+                <b>${requestScope.success}</b>
+            </div>
+        </c:if>
+        <!-- End Success Message -->
+
         <!-- Login Form  -->
         <form action="" class="login-form">
             <!-- Form Group  -->

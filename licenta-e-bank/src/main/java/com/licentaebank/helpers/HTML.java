@@ -2,7 +2,7 @@ package com.licentaebank.helpers;
 
 public class HTML {
 
-    public static String htmlEmailTemplate(String token, String code) {
+    public static String htmlEmailTemplate(String token, int code) {
 
         //verify Account URL:
         String url = "http://127.0.0.1:8070/verify?token=" + token + "&code=" + code;
@@ -46,7 +46,8 @@ public class HTML {
                 "    }\n" +
                 "\n" +
                 "    .company-name h2{\n" +
-                "        font-family: Bison;\n" +
+                "        font-weight: bold;\n" +
+                "        font-family: Bebas Neue;\n" +
                 "        text-align: center;\n" +
                 "        font-size: 40px;\n" +
                 "        margin: 15px 0px;\n" +
@@ -89,27 +90,27 @@ public class HTML {
                 "    <div class='wrapper'>\n" +
                 "        <!-- Email MSG Header -->\n" +
                 "        <h2 class='email-msg-header'>\n" +
-                "            Welcome and Thank You for Choosing\n" +
+                "            Bine ai venit! Multumim ca ai ales\n" +
                 "        </h2>\n" +
                 "        <!-- End Email MSG Header -->\n" +
                 "\n" +
                 "        <!-- Company Name -->\n" +
                 "        <div class='company-name'>\n" +
-                "            <h2>Placeholder Bank</h2>\n" +
+                "            <h2>Evermint Bank</h2>\n" +
                 "        </div>\n" +
                 "        <!-- End Company Name-->\n" +
                 "\n" +
-                "        <hr style='background:transparent; border:0; height:3px' />\n" +
+                "        <hr style='background:transparent; border:0; height:2px' />\n" +
                 "\n" +
                 "        <!-- Welcome Text -->\n" +
                 "        <p class='welcome-text'>\n" +
-                "            Your Account has been successfully registered, please click below to verify your account\n" +
+                "            Contul a fost inregistrat cu success. Apasa mai jos pentru a confirma e-mailul.\n" +
                 "        </p>\n" +
                 "        <!-- End Welcome Text -->\n" +
                 "        <br>\n" +
                 "        <br>\n" +
                 "        <!-- Verify Account Button -->\n" +
-                "        <center><a href='"+ url +"' class='verify-account-btn' role='button'>Verify Account</a></center>\n" +
+                "        <center><a href='"+ url +"' class='verify-account-btn' role='button'>Confirma</a></center>\n" +
                 "        <!-- End Verify Account Button -->\n" +
                 "\n" +
                 "        <!-- Copy Right Wrapper -->\n" +
@@ -124,6 +125,6 @@ public class HTML {
                 "\n" +
                 "  </body>\n" +
                 "</html>";
-        return "";
+        return emailTemplate;
     }
 }

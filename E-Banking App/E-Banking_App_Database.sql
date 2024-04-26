@@ -2,7 +2,6 @@ DROP DATABASE IF EXISTS e_banking_app_licenta;
 CREATE DATABASE e_banking_app_licenta;
 
 USE e_banking_app_licenta;
-
 -- USERS TABLE STRUCTURE;
 CREATE TABLE users(
 	user_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -14,7 +13,7 @@ CREATE TABLE users(
     code INT NULL, 
     verified INT DEFAULT 0,
     verified_at DATETIME,
-    created_at TIMESTAMP,
+    created_at TIMESTAMP DEFAULT NOW(),
     updated_at TIMESTAMP DEFAULT NOW()
 );
 
@@ -26,7 +25,7 @@ CREATE TABLE accounts(
     account_name VARCHAR(50) NOT NULL,
     account_type VARCHAR(50) NOT NULL,
     balance DECIMAL(18, 2) DEFAULT 0.00,
-	created_at TIMESTAMP,
+	created_at TIMESTAMP DEFAULT NOW(),
     updated_at TIMESTAMP DEFAULT NOW(),
     FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
@@ -110,6 +109,5 @@ ON
 SELECT * FROM v_transaction_history;
 
 SELECT * FROM v_payments;
-     
     
     

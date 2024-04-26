@@ -21,10 +21,16 @@
         <div class="card-body">
             <!-- Card text  -->
             <p class="card-text text-danger">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam fugit similique consequatur illum commodi architecto minima qui voluptatibus, iste ipsa.
+                <!-- Display Message -->
+                <c:if test = "${requestScope.error != null}">
+            <div class="text-danger text-center border">
+                <b>${requestScope.error}</b>
+            </div>
+            </c:if>
+            <!-- End Display Message -->
             </p>
             <!-- End Card text  -->
-            <hr style="background:transparent; border:0; height:3px" />
+            <hr style="background:transparent; border:0; height:5px" />
             <a href="/login" class="btn btn-sm btn-danger">
                 <i class="fa fa-arrow-left me-1"></i>Back
             </a>

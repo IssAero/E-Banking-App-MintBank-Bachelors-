@@ -23,7 +23,7 @@ public class MailConfig {
         // Set Mail Credentials:
         emailConfig.setHost("localhost");
         emailConfig.setPort(25);
-        emailConfig.setUsername("no-reply@placeholdercompany.com");
+        emailConfig.setUsername("no-reply@evermint.com");
         emailConfig.setPassword("Welcome_123!");
 
         return emailConfig;

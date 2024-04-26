@@ -16,12 +16,12 @@
     <!-- Card Body  -->
     <div class="card-body">
         <!-- Card Header -->
-        <h1 class="mb-3" style="font-family: Bison;">Place-holder Bankname</h1>
+        <h1 class="mb-3" style="font-family: Bebas Neue; font-weight: bold;">Evermint Bank</h1>
         <!-- End Card Header -->
 
         <!-- Card title  -->
-        <h5 class="card-title">
-            Placeholder bank motto
+        <h5 class="card-title" style="font-family: Bebas Neue;">
+            Prospetime financiara pentru un viitor verde.
         </h5>
         <!-- End Card title  -->
 

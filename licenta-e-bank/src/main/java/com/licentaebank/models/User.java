@@ -1,9 +1,7 @@
 package com.licentaebank.models;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.*;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 

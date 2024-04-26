@@ -1,6 +1,6 @@
 *{
     box-sizing: border-box;
-    font-family: Helmet Neue;
+    font-family: Bebas Neue;
 }
 
 /* Main Body Styling */
@@ -28,8 +28,17 @@ body{
 }
 
 .company-name h2{
-    font-family: Bison;
+    font-family: Bebas Neue;
     text-align: center;
+    font-size: 40px;
+    margin: 15px 0px;
+    color: black;
+}
+
+.company-name h1{
+    font-family: Bebas Neue;
+    text-align: center;
+    font-weight: bold;
     font-size: 40px;
     margin: 15px 0px;
     color: black;
