@@ -1,0 +1,148 @@
+*{
+    box-sizing: border-box;
+    font-family: Helmet Neue;
+}
+
+/* Main Body Styling */
+body{
+    height: 100vh;
+    background-image: url("../images/main_background_placeholder.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+
+/* <!-- Card : Sample Text --> */
+#sample-text-card{
+    margin: 0px 100px;
+    color: black;
+}
+
+#sample-text-card h1{
+    font-size: 60px;
+}
+
+#sample-text-card h5{
+    font-size: 30px
+}
+
+#sample-text-card p{
+    font-size: 20px;
+}
+
+.button-wrapper a{
+    width: 170px;
+    padding: 5px;
+    box-shadow: 1px 1px 2px black;
+}
+
+
+.register{
+    margin-right: 7px;
+    background-color: #00FFAB;
+}
+
+.login{
+    padding: 10px;
+}
+
+.card .card-title{
+    margin: 10px 0px;
+}
+
+.card .form-control{
+    border: 1px solid black;
+    margin: 10px 0px;
+    box-shadow: 0px 1px 1px black;
+}
+
+.card button{
+    border: 0px solid black;
+    margin-right: 7px;
+    background-color: #00FFAB;
+    width: 200px;
+    margin-top: 10px;
+    box-shadow: 0px 1px 2px black;
+}
+
+.card-text a{
+    padding-bottom: 7px;
+}
+
+/* <!--  login fields icons  --!> */
+
+.form-group-email {
+    position: relative;
+}
+
+.form-group-email i{
+    position: absolute;
+    margin-left: 96%;
+    top: 17px;
+}
+
+.form-group-password {
+    position: relative;
+}
+
+.form-group-password i{
+    position: absolute;
+    left: 802px;
+    top: 25px;
+}
+
+/* <!--  End login fields icons  --!> */
+
+/* <!--  Register fields icons  --!> */
+
+.form-group-password-register {
+    position: relative;
+}
+
+.form-group-password-register i{
+    position: absolute;
+    left: 595px;
+    top: 27px;
+}
+
+.form-group-confirm-password {
+    position: relative;
+}
+
+.form-group-confirm-password i{
+    position: absolute;
+    left: 595px;
+    top: 27px;
+}
+
+.form-group-email-register{
+    position: relative;
+}
+
+.form-group-email-register i{
+    position: absolute;
+    left: 1217px;
+    top: 17px;
+}   
+
+.form-group-last {
+    position: relative;
+}
+
+.form-group-last i{
+    position: absolute;
+    left: 595px;
+    top: 27px;
+}
+
+.form-group-first {
+    position: relative;
+}
+
+.form-group-first i{
+    position: absolute;
+    left: 595px;
+    top: 27px;
+}
+/* <!--  End Register fields icons  --!> */

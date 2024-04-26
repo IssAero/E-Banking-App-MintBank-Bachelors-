@@ -1,0 +1,32 @@
+GET http://localhost:8070/Register
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=1707A91D7A132791C52530A283FF38F9
+content-length: 0
+
+<> 2024-04-24T154206.200.html
+
+###
+
+GET http://localhost:8070/Register
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+Cookie: JSESSIONID=1707A91D7A132791C52530A283FF38F9
+content-length: 0
+
+<> 2024-04-24T153553.200.html
+
+###
+
+GET http://localhost:8070/Register
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2024-04-24T153220.200.html
+
+###
+

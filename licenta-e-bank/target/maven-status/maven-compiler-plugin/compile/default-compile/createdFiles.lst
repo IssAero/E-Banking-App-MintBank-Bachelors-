@@ -1,0 +1,11 @@
+com\licentaebank\controllers\RegisterController.class
+com\licentaebank\LicentaEBankApplication.class
+com\licentaebank\controller_advisor\AdvisorController.class
+com\licentaebank\models\User.class
+com\licentaebank\helpers\HTML.class
+com\licentaebank\mailMessenger\MailMessenger.class
+com\licentaebank\helpers\Token.class
+com\licentaebank\config\MailConfig.class
+com\licentaebank\repository\UserRepository.class
+com\licentaebank\controllers\IndexController.class
+com\licentaebank\config\AppConfig.class
