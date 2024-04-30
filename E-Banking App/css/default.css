@@ -88,8 +88,8 @@ body{
 
 .form-group-password i{
     position: absolute;
-    left: 802px;
-    top: 25px;
+    margin-left: 96%;
+    top: 17px;
 }
 
 /* <!--  End login fields icons  --!> */

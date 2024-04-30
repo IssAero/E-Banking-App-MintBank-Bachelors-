@@ -11,6 +11,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public interface UserRepository extends CrudRepository<User, Integer> {
 
+    @Query(value = "SELECT email FROM users WHERE email = :email", nativeQuery = true)
+    String getUserEmail(@Param("email")String email);
+
+    @Query(value = "SELECT password FROM users WHERE email = :email", nativeQuery = true )
+    String getUserPassword(@Param("email")String email);
+
     @Modifying
     @Query(value = "INSERT INTO users (first_name, last_name, email, password, token, code) VALUES" +
             "(:first_name, :last_name, :email, :password, :token, :code)", nativeQuery = true )

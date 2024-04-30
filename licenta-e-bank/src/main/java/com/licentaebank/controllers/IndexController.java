@@ -22,16 +22,6 @@ public class IndexController {
         return getIndexPage;
     }
 
-
-    @GetMapping("/login")
-    public ModelAndView getLogin(){
-        ModelAndView getLoginPage = new ModelAndView("login");
-        System.out.println("In Login Page Controller");
-        getLoginPage.addObject("PageTitle", "Login");
-        return getLoginPage;
-    }
-
-
     @GetMapping("/error")
     public ModelAndView getError(){
         ModelAndView getErrorPage = new ModelAndView("error");

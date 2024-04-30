@@ -1,3 +1,7 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,21 +33,35 @@
         </c:if>
         <!-- End Success Message -->
 
+        <!-- Display Message -->
+        <c:if test = "${requestScope.error != null}">
+            <div class="alert alert-danger text-center border border-danger">
+                <b>${requestScope.error}</b>
+            </div>
+        </c:if>
+        <!-- End Display Message -->
+
         <!-- Login Form  -->
-        <form action="" class="login-form">
+        <form action="/login" method="POST" class="login-form">
+
             <!-- Form Group  -->
             <div class="form-group-email col">
-                <input type="email" name="email_address" class="form-control form-control-lg" placeholder="Introduceti adresa de email"/><i class="fa-regular fa-envelope"></i>
+                <input type="email" name="email" class="form-control form-control-lg" placeholder="Introduceti adresa de email"/><i class="fa-regular fa-envelope"></i>
             </div>
             <!-- End Form Group  -->
-            <!-- Row  -->
-            <div class="row">
-                <!-- Form Group  -->
-                <div class="form-group-password col">
-                    <input type="password" name="password" class="form-control form-control-lg" placeholder="Introducei o parola"/><i class="fa-solid fa-key"></i>
-                </div>
-                <!-- End Form Group  -->
+
+            <!-- Form Group  -->
+            <div class="form-group-password col">
+                <input type="password" name="password" class="form-control form-control-lg" placeholder="Introducei o parola"/><i class="fa-solid fa-key"></i>
             </div>
+            <!-- End Form Group  -->
+
+            <!-- Form Group  -->
+            <div class="form-group-token col">
+                <input type="hidden" name="_token" value="${token}"/>
+            </div>
+            <!-- End Form Group  -->
+
             <!-- Form Group  -->
             <div class="form-group col">
                 <button class="btn btn-lg">Logare</button>
