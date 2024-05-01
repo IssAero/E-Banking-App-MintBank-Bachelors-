@@ -24,7 +24,7 @@ public class User {
     @Size(min=8, message = "Campul 'Parola' trebuie sa contina macar 8 caractere")
     private String password;
     private String token;
-    private int code;
+    private Integer code;
     private int verified;
     private LocalDate verified_at;
     private LocalDateTime created_at;

@@ -41,6 +41,14 @@
         </c:if>
         <!-- End Display Message -->
 
+        <!-- Display Message -->
+        <c:if test = "${logged_out != null}">
+            <div class="alert alert-success text-center border border-success">
+                <b>${logged_out}</b>
+            </div>
+        </c:if>
+        <!-- End Display Message -->
+
         <!-- Login Form  -->
         <form action="/login" method="POST" class="login-form">
 
