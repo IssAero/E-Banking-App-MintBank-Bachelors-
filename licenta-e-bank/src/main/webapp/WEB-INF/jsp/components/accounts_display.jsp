@@ -7,13 +7,13 @@
 
     <!-- Transact Button-->
     <button id="transact-btn" class="btn btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-        <i class="fa-solid fa-coins me-2"></i>Tranzacții
+        <i class="fa-solid fa-coins me-2"></i>Tranzactii
     </button>
     <!-- End Transact Button-->
 
     <!-- Accounts Button  -->
     <button id="accounts-btn" class="btn btn-sm ms-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-        <i class="fa-regular fa-credit-card me-2"></i>Adaugă un cont nou
+        <i class="fa-regular fa-credit-card me-2"></i>Adauga un cont nou
     </button>
     <!-- End Accounts Button-->
 
@@ -31,9 +31,8 @@
             <!-- Card Title -->
             <h3 class="card-title" style="display:inline; margin-right: 77%;">Total Conturi:</h3>
                 <c:if test="${requestScope.totalBalance != null}">
-                    <c:out value="${totalBalance}"/>
+                    <h3 style="display:inline" ><c:out value="${totalBalance}"/> RON</h3>
                 </c:if>
-            <h3 class="currency ms-1" style="display:inline">RON</h3>
             <!-- End Card Title -->
         </div>
         <!-- End Card Body-->

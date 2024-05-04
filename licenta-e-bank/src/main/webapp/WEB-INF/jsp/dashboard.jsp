@@ -20,6 +20,21 @@
     <!-- Header -->
     <c:import url="components/incl/header.jsp"/>
 
+    <!-- Display Message -->
+    <c:if test = "${success != null}">
+    <div class="alert alert-success text-center border border-success">
+        <b>${success}</b>
+    </div>
+    </c:if>
+    <!-- End Display Message -->
+
+    <!-- Display Message -->
+    <c:if test = "${error != null}">
+    <div class="alert alert-danger text-center border border-danger">
+        <b>${error}</b>
+    </div>
+    </c:if>
+    <!-- End Display Message -->
 
     <!-- Transact Offcanvas: Right Side -->
     <c:import url="components/transact_offcanvas.jsp"/>

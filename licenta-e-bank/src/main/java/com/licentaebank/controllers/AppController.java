@@ -26,7 +26,8 @@ public class AppController {
         ModelAndView getDashboardPage = new ModelAndView("dashboard");
 
         //Get details of logged-in user:
-        User user = (User)session.getAttribute("user");
+        User user = (User) session.getAttribute("user");
+        System.out.println("User details retrieved: " + user);
 
          //Get the accounts of the logged-in user:
         List<Account> getUserAccounts = accountRepository.getUserAccountsById(user.getUser_id());
