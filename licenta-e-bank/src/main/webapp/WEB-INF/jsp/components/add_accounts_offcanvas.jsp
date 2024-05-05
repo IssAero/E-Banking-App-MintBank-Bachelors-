@@ -29,8 +29,8 @@
                         <label for="">Alege tipul de cont</label>
                         <select name="account_type" class="form_control" id="">
                             <option value=""> - Alege tipul de cont -</option>
-                            <option value="Checking">Cont Curent</option>
-                            <option value="Savings">Cont Economii</option>
+                            <option value="Curent">Cont Curent</option>
+                            <option value="Economii">Cont Economii</option>
                             <option value="Business">Cont Business</option>
                         </select>
                     </div>
