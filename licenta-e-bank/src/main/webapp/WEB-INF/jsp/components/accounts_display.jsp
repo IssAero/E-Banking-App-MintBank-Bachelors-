@@ -29,9 +29,9 @@
         <!-- Card Body-->
         <div class="card-body">
             <!-- Card Title -->
-            <h3 class="card-title" style="display:inline; margin-right: 77%;">Total Conturi:</h3>
+            <h3 class="card-title" style="display:inline-block; width:fit-content">Total Conturi:</h3>
                 <c:if test="${requestScope.totalBalance != null}">
-                    <h3 style="display:inline" ><c:out value="${totalBalance}"/> RON</h3>
+                    <h3 style="display:inline; vertical-align:top; width:fit-content; margin:auto; float:right" ><c:out value="${totalBalance}"/> RON</h3>
                 </c:if>
             <!-- End Card Title -->
         </div>

@@ -16,7 +16,7 @@
             <hr style="background:transparent; border:0; height:3px" />
             <!-- Card Text -->
             <div class="card-text">
-                Momentan nu ai niciun cont inregistrat. <br>
+                Momentan nu ai niciun cont bancar inregistrat. <br>
                 Apasa mai jos pentru a inregistra / crea un cont nou.
             </div>
             <!-- End Card Text -->

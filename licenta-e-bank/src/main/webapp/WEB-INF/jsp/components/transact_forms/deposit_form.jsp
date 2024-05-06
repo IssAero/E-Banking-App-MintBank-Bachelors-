@@ -6,9 +6,11 @@
 <div class="card deposit-card">
     <!-- Card Body -->
     <div class="card-body">
+
+    <form action="/transact/deposit" method="POST" class="deposit-form">
         <!-- Form Group -->
         <div class="form-group mb-3">
-            <label for="">Cât doresi să depui?</label>
+            <label for="">Cat doresi sa depui?</label>
             <input type="text" name="deposit_amount" class="form-control" placeholder="Introdu suma">
         </div>
         <!-- End Form Group -->
@@ -17,8 +19,13 @@
         <div class="form-group mb-3">
             <label for="">Alege contul</label>
             <!-- Select account option -->
-            <select name="account-type" class="form-control my-2" id="">
+            <select name="account_id" class="form-control my-2" id="">
                 <option value="">- Alege Contul -</option>
+                <c:if test="${userAccounts != null}">
+                    <c:forEach items="${userAccounts}" var="selectAccount">
+                        <option value="${selectAccount.account_id}">${selectAccount.account_name}</option>
+                    </c:forEach>
+                </c:if>
             </select>
             <!-- End Select account option -->
         </div>
@@ -26,9 +33,11 @@
 
         <!-- Form Group -->
         <div class="form-group" align="center">
-            <button id="transact-btn" class="btn btn-lg mt-4 py-1" align="center">Continuă</button>
+            <button id="" class="btn btn-lg mt-4 py-1 transact-btn" align="center">Continua</button>
         </div>
         <!-- End Form Group -->
+    </form>
+    <!-- End Deposit Form -->
     </div>
     <!-- End Card Body -->
 </div>
