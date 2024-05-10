@@ -23,11 +23,23 @@ public interface AccountRepository extends CrudRepository<Account, Integer> {
     @Query(value = "SELECT balance FROM accounts WHERE user_id = :user_id AND account_id = :account_id", nativeQuery = true)
     double getAccountBalance(@Param("user_id") int user_id, @Param("account_id")int account_id);
 
+    @Query(value = "SELECT account_number FROM accounts WHERE account_number = :account_number", nativeQuery = true )
+    String getAccountIban(@Param("account_number")String account_number);
+
+    @Query(value = "SELECT balance FROM accounts WHERE account_number = :account_number", nativeQuery = true)
+    double getBalanceByIban(@Param("account_number") String account_number);
+
     @Modifying
     @Query(value = "UPDATE accounts SET balance = :new_balance WHERE account_id = :account_id" , nativeQuery = true)
     @Transactional
     void changeAccountBalanceById(@Param("new_balance")double new_balance,
                                   @Param("account_id")int account_id);
+
+    @Modifying
+    @Query(value = "UPDATE accounts SET balance = :new_balance WHERE account_number = :account_number" , nativeQuery = true)
+    @Transactional
+    void changeAccountBalanceByIban(@Param("new_balance")double new_balance,
+                                  @Param("account_number")String account_number);
 
     @Modifying
     @Query(value = "INSERT INTO accounts(user_id, account_number, account_name, account_type) VALUES" +

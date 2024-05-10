@@ -6,9 +6,12 @@
 <div class="card transfer-card">
     <!-- Card Body -->
     <div class="card-body">
+
+    <!-- Transfer Form -->
+    <form action="/transact/transfer" method="POST">
         <!-- Form Group -->
         <div class="form-group mb-3">
-            <label for="">Cât vrei să transferi?</label>
+            <label for="">Cat vrei sa transferi?</label>
             <input type="text" name="transfer_amount" class="form-control" placeholder="Introdu suma">
         </div>
         <!-- End Form Group -->
@@ -17,8 +20,13 @@
         <div class="form-group mb-3">
             <label for="">Alege contul</label>
             <!-- Select account option -->
-            <select name="account-type" class="form-control my-2" id="">
+            <select name="transfer_from" class="form-control my-2" id="">
                 <option value="">- Alege Contul -</option>
+                <c:if test="${userAccounts != null}">
+                    <c:forEach items="${userAccounts}" var="selectAccount">
+                        <option value="${selectAccount.account_id}">${selectAccount.account_name}</option>
+                    </c:forEach>
+                </c:if>
             </select>
             <!-- End Select account option -->
         </div>
@@ -28,8 +36,13 @@
         <div class="form-group mb-3">
             <label for="">Alege contul</label>
             <!-- Select account option -->
-            <select name="account-type" class="form-control my-2" id="">
+            <select name="transfer_to" class="form-control my-2" id="">
                 <option value="">- Alege Contul -</option>
+                <c:if test="${userAccounts != null}">
+                    <c:forEach items="${userAccounts}" var="selectAccount">
+                        <option value="${selectAccount.account_id}">${selectAccount.account_name}</option>
+                    </c:forEach>
+                </c:if>
             </select>
             <!-- End Select account option -->
         </div>
@@ -44,9 +57,11 @@
 
         <!-- Form Group -->
         <div class="form-group" align="center">
-            <button id="transact-btn" class="btn btn-lg mt-4 py-1" align="center">Continuă</button>
+            <button id="transact-btn" class="btn btn-lg mt-4 py-1" align="center">Continua</button>
         </div>
         <!-- End Form Group -->
+    </form>
+    <!-- End of Transfer Form -->
 
     </div>
     <!-- End Card Body -->

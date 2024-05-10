@@ -7,8 +7,8 @@ public class GenAccountNumber {
     public static int generateAccountNumber(){
         int accountNumber;
         Random random = new Random();
-        int bound = 10000;
-        accountNumber = bound * random.nextInt(bound);
+        int bound = 1;
+        accountNumber = bound * random.nextInt(1000,9999);
         return accountNumber;
     }
     //End Generate Account Number Method.

@@ -35,7 +35,7 @@ public class AccountController {
 
         // TODO: GENERATE/GET ACCOUNT NUMBER:
         int setAccountNumber = GenAccountNumber.generateAccountNumber();
-        String bankAccountNumber = "ROMNBK0000782111" + Integer.toString(setAccountNumber);
+        String bankAccountNumber = "ROMNBK0000782100" + Integer.toString(setAccountNumber) + Integer.toString(setAccountNumber);
 
         // TODO: CREATE ACCOUNT:
         accountRepository.createBankAccount(user.getUser_id(), bankAccountNumber, accountName, accountType);
