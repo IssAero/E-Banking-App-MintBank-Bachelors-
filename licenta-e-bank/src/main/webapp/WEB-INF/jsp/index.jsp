@@ -27,10 +27,9 @@
 
         <!-- Card Text  -->
         <p class="card-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Mintbank, banca ta de incredere, ofera solutii inovative de banking, adaptate nevoilor tale. <br>
+            Cu o platforma digitala intuitiva si acces la servicii financiare 24/7, suntem aici pentru a-ti simplifica viata financiara.<br>
+            Alege Mintbank si descopera eficienta, siguranta si suportul nostru exceptional!
         </p>
         <!-- End Card Text  -->
         <!-- Button Wrapper  -->
