@@ -14,9 +14,9 @@
 
         <!-- Navigation -->
         <nav class="navigation">
-            <li><a href="">Panou Control</a></li>
-            <li><a href="">Istoric Plati</a></li>
-            <li><a href="">Istoric Tranzactii</a></li>
+            <li><a href="/app/dashboard">Panou Control</a></li>
+            <li><a href="/app/payment_history">Istoric Plati</a></li>
+            <li><a href="/app/transact_history">Istoric Tranzactii</a></li>
         </nav>
         <!-- End Navigation -->
 

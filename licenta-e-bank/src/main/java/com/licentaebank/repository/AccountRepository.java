@@ -26,6 +26,9 @@ public interface AccountRepository extends CrudRepository<Account, Integer> {
     @Query(value = "SELECT account_number FROM accounts WHERE account_number = :account_number", nativeQuery = true )
     String getAccountIban(@Param("account_number")String account_number);
 
+    @Query(value = "SELECT account_id FROM accounts WHERE account_number = :account_number", nativeQuery = true )
+    int getAccountIDbyIban(@Param("account_number")String account_number);
+
     @Query(value = "SELECT balance FROM accounts WHERE account_number = :account_number", nativeQuery = true)
     double getBalanceByIban(@Param("account_number") String account_number);
 

@@ -1,8 +1,12 @@
 package com.licentaebank.controllers;
 
 import com.licentaebank.models.Account;
+import com.licentaebank.models.PaymentHistory;
+import com.licentaebank.models.TransactionHistory;
 import com.licentaebank.models.User;
 import com.licentaebank.repository.AccountRepository;
+import com.licentaebank.repository.PaymentHistoryRepository;
+import com.licentaebank.repository.TransactHistoryRepository;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -18,15 +22,24 @@ import java.util.List;
 @RequestMapping("/app")
 public class AppController {
 
+
     @Autowired
     private AccountRepository accountRepository;
+
+    @Autowired
+    private PaymentHistoryRepository paymentHistoryRepository;
+
+    @Autowired
+    private TransactHistoryRepository transactHistoryRepository;
+
+    User user;
 
     @GetMapping("/dashboard")
     public ModelAndView getDashboard(HttpSession session){
         ModelAndView getDashboardPage = new ModelAndView("dashboard");
 
         //Get details of logged-in user:
-        User user = (User) session.getAttribute("user");
+        user = (User) session.getAttribute("user");
         System.out.println("User details retrieved: " + user);
 
          //Get the accounts of the logged-in user:
@@ -40,5 +53,38 @@ public class AppController {
         getDashboardPage.addObject("totalBalance", totalAccountsBalance);
 
         return getDashboardPage;
+    }
+
+    @GetMapping("/payment_history")
+    public ModelAndView getPaymentHistory(HttpSession session){
+        // Set View:
+        ModelAndView getPaymentHistoryPage = new ModelAndView("paymentHistory");
+
+        // Get Logged in User:
+        user = (User) session.getAttribute("user");
+
+        // Get Payment History  / Records:
+        List<PaymentHistory> userPaymentHistory = paymentHistoryRepository.getPaymentRecordsById(user.getUser_id());
+
+        getPaymentHistoryPage.addObject("payment_history", userPaymentHistory);
+
+        return getPaymentHistoryPage;
+    }
+
+    @GetMapping("/transact_history")
+    public ModelAndView getTransactHistory(HttpSession session){
+        // Set View:
+        ModelAndView getTransactHistoryPage = new ModelAndView("transactHistory");
+
+        // Get Logged in User:
+        user = (User) session.getAttribute("user");
+        System.out.println("User details retrieved: " + user);
+
+        // Get Payment History  / Records:
+        List<TransactionHistory> userTransactHistory = transactHistoryRepository.getTransactionRecordsById(user.getUser_id());
+
+        getTransactHistoryPage.addObject("transact_history", userTransactHistory);
+
+        return getTransactHistoryPage;
     }
 }

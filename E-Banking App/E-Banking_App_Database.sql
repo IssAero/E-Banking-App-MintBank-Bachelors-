@@ -9,7 +9,7 @@ CREATE TABLE users(
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    token VARCHAR(255) NOT NULL,
+    token VARCHAR(255) NULL,
     code INT NULL, 
     verified INT DEFAULT 0,
     verified_at DATETIME,
@@ -35,11 +35,11 @@ CREATE TABLE transaction_history(
 	transaction_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     account_id INT, 
     transaction_type VARCHAR(50) NOT NULL,
-    amount DECIMAL(18, 2),
+    amount VARCHAR(250),
     source VARCHAR(50) NULL,
     status VARCHAR(50) NULL, -- successful / failed
     reason_code VARCHAR(100) NULL, -- Error reason / Success reason
-    created_at TIMESTAMP,
+    created_at TIMESTAMP DEFAULT NOW(),
     FOREIGN KEY(account_id) REFERENCES accounts(account_id) ON DELETE CASCADE
 );
 
@@ -49,10 +49,10 @@ CREATE TABLE payments(
     account_id INT,
     beneficiary VARCHAR(50) NULL,
     iban VARCHAR(255) NULL,
-    amount DECIMAL(18, 2) NULL,
+    amount VARCHAR(250),
     status VARCHAR(50) NULL, -- successful / failed
     reason_code VARCHAR(100) NULL, -- Error reason / Success reason
-    created_at TIMESTAMP,
+    created_at TIMESTAMP DEFAULT NOW(),
     details VARCHAR(255) NULL,
     FOREIGN KEY(account_id) REFERENCES accounts(account_id) ON DELETE CASCADE
 );
@@ -63,6 +63,7 @@ AS
 SELECT
 	t.transaction_id,
     a.account_id,
+    a.account_name,
     u.user_id,
     t.transaction_type,
     t.amount,
@@ -88,13 +89,15 @@ AS
 SELECT
 	p.payment_id,
     a.account_id,
+    a.account_name,
     u.user_id,
     p.beneficiary,
     p.iban,
     p.amount,
     p.status,
     p.reason_code,
-    p.created_at
+    p.created_at,
+    p.details
 FROM
 	payments AS p
 INNER JOIN

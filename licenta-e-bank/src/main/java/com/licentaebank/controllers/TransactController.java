@@ -4,6 +4,7 @@ package com.licentaebank.controllers;
 import com.licentaebank.models.User;
 import com.licentaebank.repository.AccountRepository;
 import com.licentaebank.repository.PaymentRepository;
+import com.licentaebank.repository.TransactRepository;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -25,10 +26,15 @@ public class TransactController {
     @Autowired
     private PaymentRepository paymentRepository;
 
+    @Autowired
+    private TransactRepository transactRepository;
+
     User user;
     double currentBalance;
     double newBalance;
     int acc_id;
+    String addedPaymentAmount;
+    String deductedPaymentAmount;
 
     @PostMapping("/deposit")
     public String deposit(@RequestParam("deposit_amount")String depositAmount,
@@ -65,11 +71,18 @@ public class TransactController {
         currentBalance = accountRepository.getAccountBalance(user.getUser_id(), acc_id);
         newBalance = currentBalance + depositAmountValue;
 
-
         // Update account:
         accountRepository.changeAccountBalanceById(newBalance, acc_id);
 
-        redirectAttributes.addFlashAttribute("success", "Ai adaugat fonduri cu success.");
+        // TODO: LOG TRANSACTIONS:
+        // Log transaction:
+
+        addedPaymentAmount = "+" + depositAmountValue;
+        deductedPaymentAmount = "-" + depositAmountValue;
+
+        transactRepository.logTransactionStringAmount(acc_id, "Depunere", addedPaymentAmount, "online", "Succes", "Operatiune de depunere cu succes.");
+
+        redirectAttributes.addFlashAttribute("success", "Felicitari! Fondurile au fost adaugate cu success.");
         return "redirect:/app/dashboard";
 
     }
@@ -120,6 +133,8 @@ public class TransactController {
 
         // TODO: CHECK IF ACCOUNT MAKING TRANSFER HAS REQUIRED SUM AVAILABLE:
         if(currentBalanceOfAccountMakingTransfer < transferAmount){
+            // Logging failed transaction.
+            transactRepository.logTransaction(transferFromId, "transfer", transferAmount, "online", "Esuat", "Fonduri insuficiente.");
             redirectAttributes.addFlashAttribute("error", "Fonduri insuficiente.");
             return "redirect:/app/dashboard";
         }
@@ -130,9 +145,18 @@ public class TransactController {
 
         //CHANGE THE BALANCE OF THE ACCOUNT MAKING THE TRANSFER:
         accountRepository.changeAccountBalanceById(newBalanceOfAccountMakingTransfer, transferFromId);
-
         //CHANGE THE BALANCE OF THE ACCOUNT RECEIVING THE TRANSFER:
         accountRepository.changeAccountBalanceById(newBalanceOfAccountReceivingTransfer, transferToId);
+
+        // TODO: LOG TRANSACTIONS:
+
+        addedPaymentAmount = "+" + transferAmount;
+        deductedPaymentAmount = "-" + transferAmount;
+
+        // Log Transaction
+        transactRepository.logTransactionStringAmount(transferFromId,"Transfer", deductedPaymentAmount, "online", "Succes", "Operatiune de transfer cu succes.");
+        // Log Transaction
+        transactRepository.logTransactionStringAmount(transferToId,"Transfer", addedPaymentAmount, "online", "Succes", "Operatiune de transfer cu succes.");
 
         redirectAttributes.addFlashAttribute("success", "Felicitari! Suma a fost transferata cu succes.");
         return "redirect:/app/dashboard";
@@ -173,8 +197,10 @@ public class TransactController {
         // TODO: GET CURRENT ACCOUNT BALANCE:
         currentBalance = accountRepository.getAccountBalance(user.getUser_id(), acc_id);
 
-        // TODO: CHECK IF ACCOUNT MAKING TRANSFER HAS REQUIRED SUM AVAILABLE:
+        // TODO: CHECK IF ACCOUNT MAKING WITHDRAWAL HAS REQUIRED SUM AVAILABLE:
         if(currentBalance < withdraw_Amount){
+            // Logging failed transaction.
+            transactRepository.logTransaction(acc_id, "Retragere", withdraw_Amount, "online", "Esuat", "Fonduri insuficiente.");
             redirectAttributes.addFlashAttribute("error", "Fonduri insuficiente.");
             return "redirect:/app/dashboard";
         }
@@ -184,6 +210,13 @@ public class TransactController {
 
         // TODO: UPDATE ACCOUNT BALANCE:
         accountRepository.changeAccountBalanceById(newBalance, acc_id);
+
+        // TODO: Log Transaction
+
+        addedPaymentAmount = "+" + withdraw_Amount;
+        deductedPaymentAmount = "-" + withdraw_Amount;
+
+        transactRepository.logTransactionStringAmount(acc_id,"Retragere", deductedPaymentAmount, "online", "Succes", "Operatiune de retragere cu succes.");
 
         redirectAttributes.addFlashAttribute("success", "Felicitari! Suma a fost retrasa cu succes .");
         return "redirect:/app/dashboard";
@@ -214,6 +247,9 @@ public class TransactController {
             return "redirect:/app/dashboard";
         }
 
+        // TODO: Get AccountID by IBAN:
+        int account_id_by_iban = accountRepository.getAccountIDbyIban(getIbanInDatabase);
+
         // TODO: CHECK IBAN BALANCE:
         double currentBalanceByIbanInDatabase = accountRepository.getBalanceByIban(getIbanInDatabase);
 
@@ -239,15 +275,21 @@ public class TransactController {
         // TODO: GET CURRENT ACCOUNT BALANCE:
         double currentBalanceAccountMakingPayment = accountRepository.getAccountBalance(user.getUser_id(), acc_id);
 
-        // TODO: CHECK IF ACCOUNT MAKING TRANSFER HAS REQUIRED SUM AVAILABLE:
+        // TODO: CHECK IF ACCOUNT MAKING PAYMENT HAS REQUIRED SUM AVAILABLE:
         if(currentBalanceAccountMakingPayment < paymentAmount){
+
+            String reason_code = "Plata esuata. Fonduri insuficiente.";
+            paymentRepository.makePayment(acc_id, beneficiary, account_number, paymentAmount, "Esuat",reason_code, details);
+
+            // Logging failed transaction.
+            transactRepository.logTransaction(acc_id, "Plata", paymentAmount, "online", "Esuat", "Fonduri insuficiente.");
             redirectAttributes.addFlashAttribute("error", "Plata nu a putut fi efectuata. Fonduri insuficiente.");
             return "redirect:/app/dashboard";
         }
 
         // TODO: MAKE PAYMENT:
         String reason_code = "Plata procesata";
-        paymentRepository.makePayment(acc_id, beneficiary, account_number, paymentAmount, "succes",reason_code, details);
+        paymentRepository.makePayment(acc_id, beneficiary, account_number, paymentAmount, "Succes",reason_code, details);
 
         // TODO: SET NEW BALANCE
         double newBalanceAccountMakingPayment = currentBalanceAccountMakingPayment - paymentAmount;
@@ -256,6 +298,17 @@ public class TransactController {
         // TODO: UPDATE ACCOUNT
         accountRepository.changeAccountBalanceById(newBalanceAccountMakingPayment, acc_id);
         accountRepository.changeAccountBalanceByIban(newBalanceAccountByIbanInDatabase, account_number);
+
+        // TODO: LOG TRANSACTIONS:
+        // Log Transaction:
+        addedPaymentAmount = "+" + paymentAmount;
+        deductedPaymentAmount = "-" + paymentAmount;
+
+        transactRepository.logTransactionStringAmount(acc_id,"Plata", deductedPaymentAmount, "online", "Succes", "Operatiune de plata cu succes.");
+        // Log Transaction
+        transactRepository.logTransactionStringAmount(account_id_by_iban,"Plata", addedPaymentAmount, "online", "Succes", "Operatiune de plata cu succes.");
+        System.out.println(addedPaymentAmount);
+        System.out.println(deductedPaymentAmount);
 
         redirectAttributes.addFlashAttribute("success", "Felicitari! Plata a fost efectuata cu succes .");
         return "redirect:/app/dashboard";
