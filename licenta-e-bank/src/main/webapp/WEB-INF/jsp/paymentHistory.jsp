@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="shortcut icon" href="#"/>
+    <link rel="shortcut icon" href="../images/mint-leaves.png"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -24,10 +24,10 @@
         <!-- Container -->
         <div class="container my-4">
             <!-- Card: Transaction History Card -->
-            <div class="card transaction-history shadow">
+            <div class="card transaction-history">
                 <!-- Card Header -->
                 <div class="card-header">
-                    <i class="fa-regular fa-credit-card" aria-hidden="true"></i> Istoric Plati
+                    <i class="fa-regular fa-credit-card me-2" aria-hidden="true"></i> Istoric Plati
                 </div>
                 <!-- End Card Header -->
 
@@ -45,7 +45,7 @@
                                 <th>Suma</th>
                                 <th>Status</th>
                                 <th>Cod Status</th>
-                                <th>Efectuata pe</th>
+                                <th>Data</th>
                                 <th>Detalii</th>
                             </tr>
                             <!-- Loop Through Payment History Record -->

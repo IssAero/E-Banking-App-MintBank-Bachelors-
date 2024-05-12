@@ -307,8 +307,7 @@ public class TransactController {
         transactRepository.logTransactionStringAmount(acc_id,"Plata", deductedPaymentAmount, "online", "Succes", "Operatiune de plata cu succes.");
         // Log Transaction
         transactRepository.logTransactionStringAmount(account_id_by_iban,"Plata", addedPaymentAmount, "online", "Succes", "Operatiune de plata cu succes.");
-        System.out.println(addedPaymentAmount);
-        System.out.println(deductedPaymentAmount);
+
 
         redirectAttributes.addFlashAttribute("success", "Felicitari! Plata a fost efectuata cu succes .");
         return "redirect:/app/dashboard";

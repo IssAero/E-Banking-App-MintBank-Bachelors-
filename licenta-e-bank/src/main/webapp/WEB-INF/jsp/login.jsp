@@ -5,13 +5,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="shortcut icon" href="images/mint-leaves.png"/>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="css/default.css">
-    <title>Formular Logare</title>
+    <title>Mintbank Login</title>
 </head>
 <body class="d-flex align-items-center justify-content-center">
 

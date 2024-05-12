@@ -13,7 +13,7 @@
         <!-- End Company Name  -->
 
         <!-- Navigation -->
-        <nav class="navigation">
+        <nav class="navigation align-content-center" >
             <li><a href="/app/dashboard">Panou Control</a></li>
             <li><a href="/app/payment_history">Istoric Plati</a></li>
             <li><a href="/app/transact_history">Istoric Tranzactii</a></li>
